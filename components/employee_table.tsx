@@ -57,8 +57,8 @@ interface Data {
     action: number;
     actionDetails: number;
     dateTime: string;
-    actionType: string;
-    creationTimestamp: string;
+    actionType?: string;
+    creationTimestamp?: string;
 }
 
 function createData(
@@ -107,8 +107,8 @@ export default function ColumnGroupingTable() {
   const [employeeName, setEmployeeName] = React.useState<String>('');
   const [actionType, setActionType] = React.useState<String>('');
   const [applicationType, setApplicationType] = React.useState<String>('');
-  const [fromDate, setFromDate] = React.useState<Date>('');
-  const [toDate, setToDate] = React.useState<Date>('');
+  const [fromDate, setFromDate] = React.useState<Date>(new Date(0));
+  const [toDate, setToDate] = React.useState<Date>(new Date());
   const [applicationId, setApplicationId] = React.useState<String>('');
 
   const handleChangePage = (event: unknown, newPage: number) => {
@@ -254,8 +254,8 @@ export default function ColumnGroupingTable() {
     setEmployeeName('');
     setActionType('');
     setApplicationType('');
-    setFromDate('');
-    setToDate('');
+    setFromDate(new Date(0));
+    setToDate(new Date());
     setApplicationId('');
   }  
 
